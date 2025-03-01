@@ -1,0 +1,6 @@
+4010 addhla add A to HL
+4015 adddea add A to DE
+404b swtcha jump to address according to index A
+409A start1 infinite loop
+4494 cnbbla copy nibbles of A into B and C
+6D49 gwrdhl get word from address HL + A

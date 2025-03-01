@@ -1,0 +1,110 @@
+0000 CHKRAM Tests RAM and sets RAM slot for the system
+0008 SYNCHR Tests whether the character of (HL) is the specified character
+000C RDLST  Reads the value of an address in another slot
+0010 CHRGTR Gets the next character (or token) of the Basic text
+0014 WRSLT  Writes a value to an address in another slot
+0018 OUTDO  Output to current output channel (printer, file, etc.)
+001C CALSLT Executes inter-slot call
+0020 DCOMPR Compares HL with DE
+0024 ENALST Switches indicated slot at indicated page on perpetually
+0028 GETYPR Returns Type of DAC
+0030 CALLF  Executes an interslot call
+0038 KEYINT Executes the timer interrupt process routine
+003b INITIO Initialises the device
+003e INIFNK Initialises the contents of the function keys
+0041 DISSCR Inhibits the screen display
+0044 ENASCR Displays the screen
+0047 WRTVDP Write data in the VDP-register
+004a RDVRM  Reads the content of VRAM
+004d WRTVRM Writes data in VRAM
+0050 SETRD  Enable VDP to read
+0053 SETWRT Enable VDP to write
+0056 FILVRM Fill VRAM with value
+0059 LDIRMV Block transfer to memory from VRAM
+005c LDIRVM Block transfer to VRAM from memory
+005f CHGMOD Switches to given screen mode
+0062 CHGCLR Changes the screen colors
+0066 NMI    Executes non-maskable interupt handling routine
+0069 CLRSPR Initialises all sprites
+006c INITXT Switches to SCREEN 0 (text screen with 40×24 characters)
+006f INIT32 Switches to SCREEN 1 (text screen with 32×24 characters)
+0072 INIGRP Switches to SCREEN 2 (high resolution screen with 256×192 pixels)
+0075 INIMLT Switches to SCREEN 3 (multi-color screen with 64×48 pixels)
+0078 SETTXT Switches VDP to SCREEN 0 mode
+007b SETT32 Switches VDP to SCREEN 1 mode
+007e SETGRP Switches VDP to SCREEN 2 mode
+0081 SETMLT Switches VDP to SCREEN 3 mode
+0084 CALPAT Returns the address of the sprite pattern table
+0087 CALATR Returns the address of the sprite attribute table
+008a GSPSIZ Returns current sprite size
+008d GRPPRT Displays a character on the graphic screen
+0090 GICINI Initialises PSG and sets initial value for the PLAY statement
+0093 WRTPSG Writes data to PSG register
+0096 RDPSG  Reads value from PSG register
+0099 STRTMS Tests whether the PLAY statement is being executed as a background task. If not, begins to execute the PLAY statement
+009c CHSNS  Tests the status of the keyboard buffer
+009f CHGET  One character input (waiting)
+00a2 CHPUT  Displays one character
+00a5 LPTOUT Sends one character to printer
+00a8 LPTSTT Tests printer status
+00ab CNVCHR Tests for the graphic header and transforms the code
+00ae PINLIN Stores in the specified buffer the character codes input until the return key or STOP key is pressed
+00b1 INLIN  Same as PINLIN except that AUGFLG (#F6AA) is set
+00b4 QINLIN Prints a question mark and one space
+00b7 BREAKX Tests status of CTRL-STOP
+00ba ISCNTC Tests status of SHIFT-STOP
+00bd CKCNTC Same as ISCNTC. used in Basic
+00c0 BEEP   Generates beep
+00c3 CLS    Clears the screen
+00c6 POSIT  Moves cursor to the specified position
+00c9 FNKSB  Tests whether the function key display is active
+00cc ERAFNK Erase functionkey display
+00cf DSPFNK Displays the function keys
+00d2 TOTEXT Forces the screen to be in the text mode
+00d5 GTSTCK Returns the joystick status
+00d8 GTTRIG Returns current trigger status
+00db GTPAD  Returns current touch pad status
+00de GTPDL  Returns current value of paddle
+00e1 TAPION Reads the header block after turning the cassette motor on
+00e4 TAPIN  Read data from the tape
+00e7 TAPIOF Stops reading from the tape
+00ea TAPOON Turns on the cassette motor and writes the header
+00ed TAPOUT Writes data on the tape
+00f0 TAPOOF Stops writing on the tape
+00f3 STMOTR Sets the cassette motor action
+00f6 LFTQ   Gives number of bytes in queue
+00f9 PUTQ   Put byte in queue
+00fc RIGHTC Shifts screen pixel to the right
+00ff LEFTC  Shifts screen pixel to the left
+0102 UPC    Shifts screen pixel up
+0105 TUPC   Tests whether UPC is possible, if possible, execute UPC
+0108 DOWNC  Shifts screen pixel down
+010b TDOWNC Tests whether DOWNC is possible, if possible, execute DOWNC
+010e SCALXY Scales X and Y coordinates
+0111 MAPXY  Places cursor at current cursor address
+0114 FETCHC Gets current cursor addresses mask pattern
+0117 STOREC Record current cursor addresses mask pattern
+011a SETATR Set attribute byte
+011d READC  Reads attribute byte of current screen pixel
+0120 SETC   Returns current screen pixel of specified attribute byte
+0123 NSETCX Set horizontal screen pixels
+0126 GTASPC Gets screen relations
+0129 PNTINI Initalises the PAINT instruction
+012c SCANR  Scans screen pixels to the right
+012f SCANL  Scans screen pixels to the left
+0132 CHGCAP Alternates the CAPS lamp status
+0135 CHGSND Alternates the 1-bit sound port status
+0138 RSLREG Reads the primary slot register
+013b WSLREG Writes value to the primary slot register
+013e RDVDP  Reads VDP status register
+0141 SNSMAT Returns the value of the specified line from the keyboard matrix
+0144 PHYDIO Executes I/O for mass-storage media like disks
+0147 FORMAT Initialises mass-storage media like formatting of disks
+014a ISFLIO Tests if I/O to device is taking place
+014d OUTDLP Printer output
+0150 GETVCP Returns pointer to play queue
+0153 GETVC2 Returns pointer to variable in queue number VOICEN
+0156 KILBUF Clear keyboard buffer
+0159 CALBAS Executes inter-slot call to the routine in BASIC interpreter
+FD9A HKEYI 
+FD9B HKEYI2 HKEYI+1
