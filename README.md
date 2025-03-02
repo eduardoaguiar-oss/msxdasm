@@ -39,13 +39,15 @@
 ### Steps
 1. Clone the repository:
 
-   ```git clone https://github.com/eduardoaguiar-oss/msxdasm.git
+   ```bash
+   git clone https://github.com/eduardoaguiar-oss/msxdasm.git
    cd msxdasm
    ```
 
 2. Build the project:
 
-   ```mkdir build
+   ```bash
+   mkdir build
    cd build
    cmake ..
    make
@@ -53,7 +55,8 @@
 
 3. (Optional) Install the binary:
 
-   ```sudo make install
+   ```bash
+   sudo make install
    ```
 
 ---

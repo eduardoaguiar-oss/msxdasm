@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.20.0)
 
 project(
     msxdasm
@@ -8,22 +8,17 @@ project(
     LANGUAGES CXX
 )
 
-# ---- Declare executable ----
+# ---- Msxdasm ----
 
-add_executable(msxdasm_exe msxdasm.cpp cartridge.cpp symbol_table.cpp navigator.cpp disassembler.cpp)
-add_executable(msxdasm::exe ALIAS msxdasm_exe)
+# add_compile_options(-Wall -Wextra -Wpedantic)
+add_executable(msxdasm msxdasm.cpp cartridge.cpp symbol_table.cpp navigator.cpp disassembler.cpp)
+target_compile_features(msxdasm PRIVATE cxx_std_17)
+target_compile_options(msxdasm PRIVATE -Wall -Wextra -Wpedantic)
 
-set_property(TARGET msxdasm_exe PROPERTY OUTPUT_NAME msxdasm)
+# ---- Package definition ----
 
-target_compile_features(msxdasm_exe PRIVATE cxx_std_17)
-
-# ---- Developer mode ----
-
-if(NOT msxdasm_DEVELOPER_MODE)
-  return()
-elseif(NOT PROJECT_IS_TOP_LEVEL)
-  message(
-      AUTHOR_WARNING
-      "Developer mode is intended for developers of msxdasm"
-  )
-endif()
+include(InstallRequiredSystemLibraries)
+set(CPACK_SOURCE_GENERATOR "TXZ;ZIP")
+set(CPACK_SOURCE_PACKAGE_FILE_NAME "${PROJECT_NAME}-${PROJECT_VERSION}")
+set(CPACK_SOURCE_IGNORE_FILES "/build/;/.git/;/.vscode/;/.gitignore/;todo.txt")
+include(CPack)
