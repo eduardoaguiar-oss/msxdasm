@@ -728,7 +728,7 @@ static std::string
 to_hex (std::uint8_t v)
 {
   char buffer[4];
-  sprintf (buffer, "%02x", v);
+  snprintf (buffer, sizeof (buffer), "%02x", v);
 
   return buffer;
 }
@@ -740,7 +740,7 @@ static std::string
 to_hex (std::uint16_t v)
 {
   char buffer[8];
-  sprintf (buffer, "%04x", v);
+  snprintf (buffer, sizeof (buffer), "%04x", v);
 
   return buffer;
 }

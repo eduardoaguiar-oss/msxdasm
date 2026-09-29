@@ -16,6 +16,7 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 #include "symbol_table.hpp"
+#include <array>
 #include <cstring>
 #include <stdexcept>
 #include <unordered_map>
@@ -124,7 +125,7 @@ symbol_table::impl::add_symbol (
   if (label.empty ())
     {
       char buffer[8];
-      sprintf (buffer, "l%04x", addr);
+      snprintf (buffer, sizeof (buffer), "l%04x", addr);
       symbol.label = buffer;
     }
 
@@ -142,10 +143,10 @@ symbol_table::impl::load_def (const std::string& path)
   if (!fp)
     throw std::runtime_error (strerror (errno));
 
-  constexpr size_t LINE_MAX = 1024;
-  std::array <char, LINE_MAX> buffer;
+  constexpr size_t LINE_BUFFER_SIZE = 1024;
+  std::array <char, LINE_BUFFER_SIZE> buffer;
 
-  while (fgets (buffer.data (), LINE_MAX, fp))
+  while (fgets (buffer.data (), LINE_BUFFER_SIZE, fp))
     {
       std::string line (buffer.data ());
       const auto pos = line.find_last_not_of ("\r\n\t ");

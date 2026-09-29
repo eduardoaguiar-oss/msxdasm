@@ -22,3 +22,6 @@ set(CPACK_SOURCE_GENERATOR "TXZ;ZIP")
 set(CPACK_SOURCE_PACKAGE_FILE_NAME "${PROJECT_NAME}-${PROJECT_VERSION}")
 set(CPACK_SOURCE_IGNORE_FILES "/build/;/.git/;/.vscode/;/.gitignore/;todo.txt")
 include(CPack)
+
+# Install target
+install(TARGETS msxdasm DESTINATION bin)
